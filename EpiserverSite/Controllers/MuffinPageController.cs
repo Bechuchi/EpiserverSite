@@ -9,13 +9,13 @@ using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Controllers
 {
-    public class StartPageController : PageControllerBase<StartPage>
+    public class MuffinPageController : PageControllerBase<MuffinPage>
     {
-        public StartPageController(IContentLoader loader) : base(loader)
+        public MuffinPageController(IContentLoader loader) : base(loader)
         {
         }
 
-        public ActionResult Index(StartPage currentPage)
+        public ActionResult Index(MuffinPage currentPage)
         {
             return View(CreatePageViewModel(currentPage));
         }

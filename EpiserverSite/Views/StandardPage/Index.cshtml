@@ -1,0 +1,17 @@
+﻿@using EpiserverSite.Models.ViewModels
+@using EpiserverSite.Models.Pages
+@model PageViewModel<StandardPage>
+@{
+    //TODO Ev ta bort om jag gör som Haglund
+    Layout = "~/Views/Shared/_LeftNavigation.cshtml";
+}
+
+@* TODO: Brukar vara heading inte meta title (page 91) *@
+<h1 @Html.EditAttributes(m => m.CurrentPage.MetaTitle)>
+    @(Model.CurrentPage.MetaTitle ?? Model.CurrentPage.Name)
+</h1>
+<div class="row">
+    <div class="span8 clearfix">
+        @Html.PropertyFor(x => x.CurrentPage.MainBody)
+    </div>
+</div>

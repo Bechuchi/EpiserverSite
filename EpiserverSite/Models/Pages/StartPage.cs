@@ -4,6 +4,7 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Models.Pages
 {
@@ -12,7 +13,7 @@ namespace EpiserverSite.Models.Pages
                  Description = "The home page for a website with an area for blocks and partial pages.",
                  GroupName = SiteGroupNames.Specialized,
                  Order = 10)]
-    public class StartPage : PageData
+    public class StartPage : SitePageData
     {
         [CultureSpecific]
         [Display(Name = "Heading",
@@ -28,5 +29,17 @@ namespace EpiserverSite.Models.Pages
             Order = 20)]
         public virtual XhtmlString MainBody { get; set; }
 
+        [CultureSpecific]
+        [Display(Name = "Footer address",
+                 Description = "The footer text will be shown at the bottom of every page.",
+                 GroupName = SiteTabNames.SiteSettings,
+                 Order = 10)]
+        public virtual string FooterAddress { get; set; }
+        [CultureSpecific]
+        [Display(Name = "Footer opening hours",
+                 Description = "The footer text will be shown at the bottom of every page.",
+                 GroupName = SiteTabNames.SiteSettings,
+                 Order = 10)]
+        public virtual string FooterOpeningHours { get; set; }
     }
 }

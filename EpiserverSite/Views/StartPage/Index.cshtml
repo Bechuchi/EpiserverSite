@@ -1,12 +1,19 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
-@model EpiserverSite.Models.Pages.StartPage
+@model EpiserverSite.Models.ViewModels.PageViewModel<EpiserverSite.Models.Pages.StartPage>
 
 
-<h1 @Html.EditAttributes(m => m.Heading)>
-    @(Model.Heading ?? Model.Name)
+<h1 @Html.EditAttributes(m => m.CurrentPage.Heading)>
+    @(Model.CurrentPage.Heading ?? Model.CurrentPage.Name)
 </h1>
 
+<br />
+<br />
 <div>
-    @Html.PropertyFor(m => m.MainBody)
+    @* TODO: PropertyFor eller DisplayFor *@
+    @Html.PropertyFor(m => m.CurrentPage.MainBody)
+</div>
+
+<div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
+    <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
 </div>

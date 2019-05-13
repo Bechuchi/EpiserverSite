@@ -1,0 +1,15 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model EpiserverSite.Models.ViewModels.IPageViewModel<EpiserverSite.Models.Pages.SitePageData>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <hr />
+            <div class="col-lg-12 text-center">
+                <p>@Model.StartPage.FooterAddress</p>
+                <p>@Model.StartPage.FooterOpeningHours</p>
+            </div>
+        </div>
+    </div>
+</footer>

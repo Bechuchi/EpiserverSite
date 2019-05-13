@@ -1,0 +1,21 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model EpiserverSite.Models.ViewModels.PageViewModel<EpiserverSite.Models.Pages.MuffinPage>
+
+<p class="introduction"
+   @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>
+    @Model.CurrentPage.MetaDescription
+</p>
+
+<h2>
+    @Html.PropertyFor(m => m.CurrentPage.MuffinName)
+</h2>
+<hr />
+
+@Html.PropertyFor(m => m.CurrentPage.MuffinDescription)
+
+<div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
+    <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
+</div>
+
+
