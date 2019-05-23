@@ -256,6 +256,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blocks\InfoBlock.cs" />
     <Compile Include="Models\Blocks\ListingBlock.cs" />
     <Compile Include="Models\Blocks\MuffinBlock.cs" />
     <Compile Include="Models\Media\AnyFile.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\ViewModels\ContentFolderViewModel.cs" />
+    <Compile Include="Models\ViewModels\InfoBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\ListingBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
@@ -329,6 +331,7 @@
     <Content Include="Views\ContentFolder\Index.cshtml" />
     <Content Include="Views\ListingBlock\Index.cshtml" />
     <Content Include="Views\MuffinsLandingPage\Index.cshtml" />
+    <Content Include="Views\InfoBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
