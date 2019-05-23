@@ -10,6 +10,7 @@ namespace EpiserverSite.Models.ViewModels
         public StartPage StartPage { get; set; }
         public IEnumerable<SitePageData> MenuPages { get; set; }
         public IContent Section { get; set; }
+
         public PageViewModel(T currentPage)
         {
             CurrentPage = currentPage;

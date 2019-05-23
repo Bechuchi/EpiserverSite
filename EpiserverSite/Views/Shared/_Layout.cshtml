@@ -1,12 +1,21 @@
-﻿@model EpiserverSite.Models.ViewModels.IPageViewModel<EpiserverSite.Models.Pages.SitePageData>
+﻿@using EpiserverSite.Business.ExtensionMethods
+@using EpiserverSite.Models.ViewModels
+@using EpiserverSite.Models.Pages
+@model IPageViewModel<SitePageData>
+@using EPiServer.Core
+
+
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Neaty HTML Web Template</title>
+    @*<title>Neaty HTML Web Template</title>*@
+    <title>@(Model.CurrentPage.MetaTitle ?? Model.CurrentPage.Name)</title>
     <!--
     Neaty HTML Template
     http://www.templatemo.com/tm-501-neaty
@@ -34,25 +43,29 @@
                         <h1 class="tm-site-name">Neaty</h1>
                     </div>
                     <nav class="tm-main-nav">
+                        @Html.ContentLink(ContentReference.StartPage)
                         <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item">
-                                <a href="#welcome" class="tm-nav-item-link">Welcome</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="#about" class="tm-nav-item-link">About Us</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="#galleryone" class="tm-nav-item-link">Gallery One</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="#secondgallery" class="tm-nav-item-link">Second Gallery</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="#thirdgallery" class="tm-nav-item-link">Third Gallery</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="#contact" class="tm-nav-item-link">Contact Us</a>
-                            </li>
+                            @foreach (var page in Model.MenuPages)
+                            {
+                                <li class="tm-nav-item">
+                                    @Html.ContentLink(page.ContentLink)
+                                </li>
+                            }
+                            @*<li class="tm-nav-item">
+                                    <a href="#about" class="tm-nav-item-link">About Us</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="#galleryone" class="tm-nav-item-link">Gallery One</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="#secondgallery" class="tm-nav-item-link">Second Gallery</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="#thirdgallery" class="tm-nav-item-link">Third Gallery</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="#contact" class="tm-nav-item-link">Contact Us</a>
+                                </li>*@
                         </ul>
                     </nav>
                 </div> <!-- Left column: logo and menu -->
@@ -78,33 +91,33 @@
     <script src="/Static/js/jquery.magnific-popup.min.js"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
     <script src="/Static/js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
     <script>
-            $(document).ready(function(){
-                // Single page nav
-                $('.tm-main-nav').singlePageNav({
-                    'currentClass' : "active",
-                    offset : 20
-                });
-                // Magnific pop up
-                $('.tm-gallery-1').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                });
-                $('.tm-gallery-2').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                });
-                $('.tm-gallery-3').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                });
-                $('.tm-current-year').text(new Date().getFullYear());
+        $(document).ready(function () {
+            // Single page nav
+            $('.tm-main-nav').singlePageNav({
+                'currentClass': "active",
+                offset: 20
             });
+            // Magnific pop up
+            $('.tm-gallery-1').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image',
+                gallery: { enabled: true }
+                // other options
+            });
+            $('.tm-gallery-2').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image',
+                gallery: { enabled: true }
+                // other options
+            });
+            $('.tm-gallery-3').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image',
+                gallery: { enabled: true }
+                // other options
+            });
+            $('.tm-current-year').text(new Date().getFullYear());
+        });
     </script>
 </body>
 </html>

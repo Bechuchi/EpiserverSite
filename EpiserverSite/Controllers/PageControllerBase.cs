@@ -31,13 +31,15 @@ namespace EpiserverSite.Controllers
         }
 
         //TODO: Jämföra med Haglunds
-        protected IPageViewModel<TPage> CreatePageViewModel<TPage>(TPage currentPage) where TPage : SitePageData
+        protected IPageViewModel<TPage> CreatePageViewModel<TPage>
+            (TPage currentPage) where TPage : SitePageData
         {
             var viewModel = PageViewModel.Create(currentPage);
 
             viewModel.StartPage = loader.Get<StartPage>(ContentReference.StartPage);
             //FilterForVisitorn tar bort opubliserade pages + sidor som användaren inte har access till
-            viewModel.MenuPages = FilterForVisitor.Filter(loader.GetChildren<SitePageData>(ContentReference.StartPage))
+            viewModel.MenuPages = FilterForVisitor.Filter(
+                loader.GetChildren<SitePageData>(ContentReference.StartPage))
                 .Cast<SitePageData>()
                 .Where(page => page.VisibleInMenu);
 

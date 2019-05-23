@@ -41,5 +41,13 @@ namespace EpiserverSite.Models.Pages
                  GroupName = SiteTabNames.SiteSettings,
                  Order = 10)]
         public virtual string FooterOpeningHours { get; set; }
+
+        //Added wednesday
+        [CultureSpecific]
+        [Display(Name = "Main content area",
+                 Description = "Drag and drop images, blocks, folders, and pages with partial templates.",
+                 GroupName = SystemTabNames.Content, Order = 30)]
+        [AllowedTypes(typeof(StandardPage), typeof(BlockData), typeof(ImageData), typeof(ContentFolder))]
+        public virtual ContentArea MainContentArea { get; set; }
     }
 }

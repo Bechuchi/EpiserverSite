@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using EPiServer.Core;
-using System.Collections.Generic;
 
 namespace EpiserverSite.Models.ViewModels
 {
