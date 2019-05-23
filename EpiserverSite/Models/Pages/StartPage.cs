@@ -42,7 +42,6 @@ namespace EpiserverSite.Models.Pages
                  Order = 10)]
         public virtual string FooterOpeningHours { get; set; }
 
-        //Added wednesday
         [CultureSpecific]
         [Display(Name = "Main content area",
                  Description = "Drag and drop images, blocks, folders, and pages with partial templates.",

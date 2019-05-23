@@ -34,6 +34,11 @@ namespace EpiserverSite.Models.Pages
             Order = 1)]
         public virtual string MuffinDescription { get; set; }
 
-        //TODO: add image as property
+        [CultureSpecific]
+        [Display(Name = "Main content area",
+         Description = "Drag and drop images, blocks, folders, and pages with partial templates.",
+         GroupName = SystemTabNames.Content, Order = 30)]
+        [AllowedTypes(typeof(StandardPage), typeof(BlockData), typeof(ImageData), typeof(ContentFolder))]
+        public virtual ContentArea MainContentArea { get; set; }
     }
 }
