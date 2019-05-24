@@ -48,5 +48,12 @@ namespace EpiserverSite.Models.Pages
                  GroupName = SystemTabNames.Content, Order = 30)]
         [AllowedTypes(typeof(StandardPage), typeof(BlockData), typeof(ImageData), typeof(ContentFolder))]
         public virtual ContentArea MainContentArea { get; set; }
+
+        [CultureSpecific]
+        [Display(Name = "Muffin of the month",
+                 Description = "Muffin of the month",
+                 GroupName = SiteTabNames.SiteSettings,
+                 Order = 10)]
+        public virtual ContentReference MuffinOfTheMonth { get; set; }
     }
 }
